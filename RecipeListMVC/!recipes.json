@@ -1,0 +1,112 @@
+[
+  {
+    "Name": "pizza",
+    "Instruction": "Preheat oven to 450 degrees F (230 degrees C).In a medium bowl, dissolve yeast and sugar in warm water. Let stand until creamy, about 10 minutes. Stir in flour, salt and oil. Beat until smooth. Let rest for 5 minutes. Turn dough out onto a lightly floured surface and pat or roll into a round. Transfer crust to a lightly greased pizza pan or baker\u0027s peel dusted with cornmeal. Spread with desired toppings and bake in preheated oven for 15 to 20 minutes, or until golden brown. Let baked pizza cool for 5 minutes before serving.",
+    "Ingredients": [
+      {
+        "Name": "egg",
+        "Quantity": 8,
+        "Units": "pcs"
+      },
+      {
+        "Name": "flour",
+        "Quantity": 20.0,
+        "Units": "cups"
+      },
+      {
+        "Name": "salt",
+        "Quantity": 8.0,
+        "Units": "teaspoon"
+      },
+      {
+        "Name": "olive oil",
+        "Quantity": 16,
+        "Units": "tablespoons"
+      },
+      {
+        "Name": "active dry yeast",
+        "Quantity": 2.00,
+        "Units": "ounce"
+      }
+    ]
+  },
+  {
+    "Name": "sandwitch",
+    "Instruction": "Put ham and cheese on a bread.\t",
+    "Ingredients": [
+      {
+        "Name": "bread",
+        "Quantity": 1,
+        "Units": "slice"
+      },
+      {
+        "Name": "ham",
+        "Quantity": 1,
+        "Units": "slice"
+      },
+      {
+        "Name": "cheese",
+        "Quantity": 1,
+        "Units": "slice"
+      }
+    ]
+  },
+  {
+    "Name": "omlette",
+    "Instruction": "Whisk eggs, water, salt and pepper\r\nSpray 8-inch (20 cm) non-stick skillet with cooking spray.\r\nWhen eggs are almost set on surface but still look moist, cover half of omelette with filling. ...\r\nCook for a minute, then slide omelette onto plate.\r\n(Nutrients per serving as per without filling)",
+    "Ingredients": [
+      {
+        "Name": "salt",
+        "Quantity": 1,
+        "Units": "pinch"
+      },
+      {
+        "Name": "water",
+        "Quantity": 0.4,
+        "Units": "l"
+      },
+      {
+        "Name": "egg",
+        "Quantity": 2.1,
+        "Units": "pcs"
+      },
+      {
+        "Name": "milk",
+        "Quantity": 150,
+        "Units": "ml"
+      }
+    ]
+  },
+  {
+    "Name": "Test1",
+    "Instruction": "Testing...",
+    "Ingredients": [
+      {
+        "Name": "t1",
+        "Quantity": 0.1,
+        "Units": "u"
+      },
+      {
+        "Name": "t2",
+        "Quantity": 3.5,
+        "Units": "uz"
+      },
+      {
+        "Name": "z3",
+        "Quantity": 17.4,
+        "Units": "k"
+      }
+    ]
+  },
+  {
+    "Name": "To Delete",
+    "Instruction": "Delete me plzd",
+    "Ingredients": [
+      {
+        "Name": "Delete",
+        "Quantity": 1000,
+        "Units": "me"
+      }
+    ]
+  }
+]

@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="row justify-content-center">
+    <table class="table table-bordered table-hover" style="width: 65%">
+        <thead>
+            <tr>
+                <th style="width: 80%"> Recipes </th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @item.Name </td>
+                <td>
+                    [ @Html.ActionLink("Edit", "Edit", new { name = item.Name }) |
+                    @Html.ActionLink("Delete", "Delete", new { name = item.Name }) ]
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    <div class="row justify-content-center">
+        <button type="submit" class="btn btn-success" onclick="location.href='@Url.Action("CreateOrEdit", "Recipe")'">Create New</button>
+    </div>
+</p>
+

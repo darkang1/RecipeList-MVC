@@ -1,0 +1,100 @@
+﻿@model RecipeListMVC.Models.Recipe
+@{ ViewData["Title"] = Model.Name;
+    var isIngredToEdit = TempData.ContainsKey("ingredIndex");
+    var formAction = isIngredToEdit ? "Edit" : "Create"; }
+<form class="mt-2 needs-validation" method="post">
+    @if (String.IsNullOrEmpty(Model.Name))
+    {
+        <h2>Create Recipe</h2>
+    }
+    else
+    {
+        <h2>Edit Recipe</h2>
+    }
+    <p></p>
+    @{TempData["currRecipe"] = Model.Name;}
+    <div class="form-group">
+        <label for="recipeName" class="form-label"><b>Recipe Name</b></label>
+        <input type="text" class="form-control" id="recipeName" name="Name" style="width: 50%;" placeholder="Enter recipe name" required value="@Model.Name" />
+    </div>
+    <div class="form-group">
+        <label for="recipeInstruction" class="form-label"><b>Recipe Instruction</b></label>
+        <textarea class="form-control" rows="7" style="width: 50%;" id="recipeInstruction" name="Instruction" placeholder="Enter instructions">@Model.Instruction</textarea>
+    </div>
+    @if (String.IsNullOrEmpty(Model.Name))
+    {
+        <p><b>*** Ingredients will be possible to add in the Edit menu ***</b></p>
+        <button type="submit" class="btn btn-success">Create</button> }
+    else
+    {
+        <button type="submit" class="btn btn-primary">Update</button>}
+    <p></p>
+    @if (!String.IsNullOrEmpty(Model.Name))
+    {
+        <div class="list-group">
+            <label for="recipeIngredients" class="form-label"><b>Ingredients</b></label>
+            <table class="table table-bordered table-hover" style="width: 65%">
+                <tr>
+                    <th style="width: 30%;">Name</th>
+                    <th style="width: 25%;">Quantity</th>
+                    <th style="width: 25%;">Units</th>
+                </tr>
+                @foreach (var item in Model.Ingredients)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Units</td>
+                        <td>
+                            [ @Html.ActionLink("Edit", "EditIngredient", "Recipe", new { recipeName = Model.Name, ingredName = item.Name }) |
+                            @Html.ActionLink("Delete", "Delete", "Ingredients", new { recipeName = Model.Name, ingredName = item.Name, units = item.Units }) ]
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</form>
+@if (!String.IsNullOrEmpty(Model.Name))
+{
+    <form method="post" asp-controller="Ingredients" asp-action="@formAction">
+        <input type="hidden" name="recipeName" value="@Model.Name" />
+        <div class="form-row mt-5">
+            <div class="col">
+                @if (isIngredToEdit)
+                {
+                    TempData["currIngred"] = Model.Ingredients[(int)@TempData["ingredIndex"]].Name;
+                    <input type="text" required autocomplete="off" class="form-control" name="name" placeholder="Ingredient Name" value="@Model.Ingredients[(int)@TempData["ingredIndex"]].Name"> }
+                else
+                {
+                    <input type="text" required autocomplete="off" class="form-control" name="name" placeholder="Ingredient Name">}
+            </div>
+            <div class="col">
+                @if (isIngredToEdit)
+                {
+                    TempData["currIngred"] = Model.Ingredients[(int)@TempData["ingredIndex"]].Name;
+                    <input type="number" required autocomplete="off" min="0.001" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity" value="@Model.Ingredients[(int)@TempData["ingredIndex"]].Quantity"> }
+                else
+                {
+                    <input type="number" required autocomplete="off" min="0.001" step=".001" class="form-control" name="quantity" placeholder="Ingredient Quantity">}
+            </div>
+            <div class="col">
+                @if (isIngredToEdit)
+                {
+                    TempData["currIngred"] = Model.Ingredients[(int)@TempData["ingredIndex"]].Name;
+                    <input type="text" required autocomplete="off" class="form-control" name="units" placeholder="Ingredient Units" value="@Model.Ingredients[(int)@TempData["ingredIndex"]].Units"> }
+                else
+                {
+                    <input type="text" required autocomplete="off" class="form-control" name="units" placeholder="Ingredient Units">}
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">@formAction Ingredient</button>
+            @if (isIngredToEdit)
+            {
+                <div class="col">
+                    <a class="btn btn-info" asp-action="Edit" asp-controller="Recipe" asp-route-name="@Model.Name">Cancel</a>
+                </div>
+            }
+        </div>
+    </form>
+}
+
